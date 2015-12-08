@@ -1,5 +1,5 @@
 function isEmail(email) {
-	var regex = /^[^\W]*[@][^\W]*\.[a-z, \.]*$/;
+	var regex = /^[^\W]*[@][^\W]*\.[a-z\.]*$/;
 	return regex.test(email);
 };
 
@@ -8,6 +8,13 @@ function hasInvalidCharacters(username) {
 	return regex.test(username);
 };
 
+function slowEquals(a, b) {
+	var diff = a.length ^ b.length;
+	for(var i=0;i<a.length && i<b.length;i++) {
+		diff |= a.charAt(i) ^ b.charAt(i);
+	}
+	return diff === 0;
+}
 
 /*		checks two inputs for equality, gives red borders to both if they are not equal		*/
 function setInputEquality(firstField, secondField) {
@@ -24,7 +31,7 @@ function setInputEquality(firstField, secondField) {
 	return true;
 };
 
-function setEmailBlur(firstEmail, secondEmail, errorId) {
+function setEmailOnBlur(firstEmail, secondEmail, errorId) {
 	if($(firstEmail).val().length != 0) {
 		if(!isEmail($(firstEmail).val())) {
 			$(firstEmail).removeClass("equal");
@@ -53,13 +60,15 @@ $(document).ready(function() {
 	$("#invalidEmail").hide();
 	$("#emailsNotEqual").hide();
 	$("#invalidRepeatEmail").hide();
+	$("#shortPassword").hide();
+	$("#passwordsNotMatch").hide();
 
 	$("#email").blur(function () {
-		setEmailBlur(this, "#repeatEmail", "#invalidEmail");
+		setEmailOnBlur(this, "#repeatEmail", "#invalidEmail");
 	});
 
 	$("#repeatEmail").blur(function() {
-		setEmailBlur(this, "#email", "#invalidRepeatEmail");
+		setEmailOnBlur(this, "#email", "#invalidRepeatEmail");
 	});
 
 	$("#username").blur(function() {
@@ -84,4 +93,43 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$("#password").blur(function() {
+		if($(this).val().length > 0) {
+			if($(this).val().length < 6) {
+				$(this).removeClass("equal").addClass("notEqual");
+				$("input[type=submit]").attr('disabled', 'disabled');
+				$("#shortPassword").show(250);
+			} else {
+				$("#shortPassword").hide(250);
+				if(!slowEquals($(this).val(), $("#repeatPassword").val())) {
+					$("#passwordsNotMatch").show(250);
+					$(this).removeClass("equal").addClass("notEqual");
+					$("#repeatPassword").removeClass("equal").addClass("notEqual");
+					$("input[type=submit]").attr('disabled', 'disabled');
+				} else {
+					$("#passwordsNotMatch").hide(250);
+					$(this).removeClass("notEqual").addClass("equal");
+					$("#repeatPassword").removeClass("notEqual").addClass("equal");
+					$("input[type=submit]").removeAttr('disabled');
+				}
+			}
+		}
+	});
+
+	$("#repeatPassword").blur(function() {
+		if($(this).val().length > 0) {
+			if(!slowEquals($(this).val(), $("#password").val())) {
+				$("#passwordsNotMatch").show(250);
+				$(this).removeClass("equal").addClass("notEqual");
+				$("#password").removeClass("equal").addClass("notEqual");
+				$("input[type=submit]").attr('disabled', 'disabled');
+			} else {
+				$("#passwordsNotMatch").hide(250);
+				$(this).removeClass("notEqual").addClass("equal");
+				$("#password").removeClass("notEqual").addClass("equal");
+				$("input[type=submit]").removeAttr('disabled');
+			}
+		}
+	})
 });
