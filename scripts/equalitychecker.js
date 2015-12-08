@@ -94,41 +94,33 @@ $(document).ready(function() {
 		}
 	});
 
+	var isPasswordLongEnough;
+
 	$("#password").blur(function() {
 		if($(this).val().length > 0) {
 			if($(this).val().length < 6) {
 				$(this).removeClass("equal").addClass("notEqual");
 				$("input[type=submit]").attr('disabled', 'disabled');
 				$("#shortPassword").show(250);
+				isPasswordLongEnough = false;
 			} else {
+				isPasswordLongEnough = true;
 				$("#shortPassword").hide(250);
-				if(!slowEquals($(this).val(), $("#repeatPassword").val())) {
-					$("#passwordsNotMatch").show(250);
-					$(this).removeClass("equal").addClass("notEqual");
-					$("#repeatPassword").removeClass("equal").addClass("notEqual");
-					$("input[type=submit]").attr('disabled', 'disabled');
-				} else {
+				if(setInputEquality(this, "#repeatPassword")) {
 					$("#passwordsNotMatch").hide(250);
-					$(this).removeClass("notEqual").addClass("equal");
-					$("#repeatPassword").removeClass("notEqual").addClass("equal");
-					$("input[type=submit]").removeAttr('disabled');
+				} else {
+					$("#passwordsNotMatch").show(250);
 				}
 			}
 		}
 	});
 
 	$("#repeatPassword").blur(function() {
-		if($(this).val().length > 0) {
-			if(!slowEquals($(this).val(), $("#password").val())) {
-				$("#passwordsNotMatch").show(250);
-				$(this).removeClass("equal").addClass("notEqual");
-				$("#password").removeClass("equal").addClass("notEqual");
-				$("input[type=submit]").attr('disabled', 'disabled');
-			} else {
+		if($(this).val().length > 0 && isPasswordLongEnough) {
+			if(setInputEquality(this, "#password")) {
 				$("#passwordsNotMatch").hide(250);
-				$(this).removeClass("notEqual").addClass("equal");
-				$("#password").removeClass("notEqual").addClass("equal");
-				$("input[type=submit]").removeAttr('disabled');
+			} else {
+				$("#passwordsNotMatch").show(250);
 			}
 		}
 	})
