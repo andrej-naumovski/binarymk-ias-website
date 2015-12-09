@@ -29,10 +29,10 @@
 			<br style="clear:both;"/>
 			<img src="images/title_logo.png" />
 			<nav>
-				<a href="#" id="home">ДОМА</a>
-				<a href="#" id="tuts">НАУЧИ ДА КОДИРАШ</a>
-				<a href="#" id="practice">ВЕЖБИ И ЗАДАЧИ</a>
-				<a href="#" id="questions">ИМАШ ПРАШАЊЕ?</a>
+				<a href="index.php" id="home">ДОМА</a>
+				<a href="learn.php" id="tuts">НАУЧИ ДА КОДИРАШ</a>
+				<a href="practice.php" id="practice">ВЕЖБИ И ЗАДАЧИ</a>
+				<a href="questions.php" id="questions">ИМАШ ПРАШАЊЕ?</a>
 			</nav>
 		</header>
 		<div id="main">
