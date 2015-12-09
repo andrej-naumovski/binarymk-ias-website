@@ -77,7 +77,7 @@
 		</div>
 		<footer>
 			<p id="copyright">COPYRIGHT &copy; BINARY.MK, 2015. РАЗВИЕНО ОД АНДРЕЈ НАУМОВСКИ И ЃОРЃИ МАРКОВ. СИТЕ ПРАВА СЕ ЗАДРЖАНИ</p>
-			<p id="contact"><a href="#">КОНТАКТ</a></p>
+			<p id="contact"><a href="contact.php">КОНТАКТ</a></p>
 			<img src="images/register-undershade.png" />
 		</footer>
 	</body>
