@@ -21,7 +21,7 @@
 		<div id="main">
 			<h1>ПРИДРУЖИ СЕ НА BINARY.MK</h1>
 			<h3>ВЕЌЕ СИ РЕГИСТРИРАН? <a href="login.php">НАЈАВИ СЕ ТУКА</a></h3>
-			<form method="post" action="">
+			<form method="post" action="#">
 				<input type="text" class="input" name="firstName" placeholder="Име" required />
 				<input type="text" class="input" name="lastName" placeholder="Презиме" required />
 				<input type="email" class="input" id="email" name="email" placeholder="E-mail адреса" required />
@@ -33,7 +33,9 @@
 				<p id="shortUsername" class="error">Корисничкото име мора да има минимум 6 карактери</p>
 				<p id="invalidCharacters" class="error">Корисничкото име може да содржи само букви, цифри и -, _ и .</p>
 				<input type="password" class="input" id="password" name="password" placeholder="Лозинка" required />
+				<p id="shortPassword" class="error">Лозинката мора да е подолга од 6 знаци</p>
 				<input type="password" class="input" id="repeatPassword" name="repeatPassword" placeholder="Повтори лозинка" required />
+				<p id="passwordsNotMatch" class="error">Лозинките не се исти!</p>
 				<input type="submit" id="submitBtn" name="submit" value="РЕГИСТРИРАЈ СЕ" />
 			</form>
 			<?php
@@ -60,16 +62,8 @@
 						printf("<p style=\"color: red;\">A user with that username already exists!</p>");
 						$correct = false;
 					}
-					if(strlen(utf8_decode($password)) < 6) {
-						printf("<p style=\"color: red;\">Password must be at least six characters long!</p>");
-						$correct = false;
-					}
-					if(!slowEquals($password, $repeat_password)) {
-						printf("<p style=\"color: red;\">Passwords do not match!</p>");
-						$correct = false;
-					}
 					if($correct) {
-						$hashed_password = createHash($password);
+						$hashed_password = create_hash($password);
 						$sql = "insert into users (FirstName,LastName,Email,Username,Password)
 						Values('$first_name','$last_name','$email','$username','$hashed_password')";
 						$mysqli->query($sql);

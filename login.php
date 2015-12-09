@@ -64,7 +64,7 @@
             			} else {
             				$row = $result->fetch_row();
             				$hashed_password = $row[PASSWORD_INDEX];
-            				if(checkPassword($password, $hashed_password)) {
+            				if(check_password($password, $hashed_password)) {
             					session_start();
             					$_SESSION['UserID'] = $row[USERID_INDEX];
             					header('Location: index.php');
