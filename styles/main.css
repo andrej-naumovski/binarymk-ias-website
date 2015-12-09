@@ -1,0 +1,113 @@
+body {
+	background: url("/images/background-new.jpg");    
+    background-position:center;
+    background-repeat: repeat-y;
+    background-size:1920px;
+    color: #d0cfcf;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+a {
+	color: #fff;
+}
+
+header {
+	margin: auto;
+	width: 960px;
+}
+
+	#welcome {
+		display: inline;
+		float: left;
+	}
+
+	#logout {
+		display: inline;
+		float: right;
+	}
+
+header img {
+	margin: auto;
+}
+
+header nav {
+	background: url('/images/nav-bg.png');
+	box-shadow: 0px 0px 18px #000;
+	color: #fff;
+	font-size: 24px;
+	height: 50px;
+	padding: 0px;
+}
+
+header nav a {
+	float: left;
+	margin-bottom: 15px;
+	margin-top: 13px;
+	opacity: 0.5;
+}
+	
+	#home {
+		margin-left: 45px;
+		margin-right: 45px;
+	}
+
+	#tuts {
+		margin-left: 65px;
+		margin-right: 65px;
+	}
+
+	#practice {
+		margin-left: 64px;
+		margin-right: 64px;
+	}
+
+	#questions {
+		margin-left: 50px;
+	}
+
+#main {
+	background: #eee;
+	box-shadow: 0px 0px 32px #000;
+	color: #929292;
+	margin: auto;
+	width: 960px;
+}
+
+footer {
+	color: #eee;
+	font-size: 18px;
+	margin: auto;
+	margin-top: 20px;
+	text-decoration: none;
+	text-shadow: 1px 1px 2px #000;
+    -moz-text-shadow: 1px 1px 2px #000;
+    -webkit-text-shadow: 1px 1px 2px #000;
+	width: 960px;
+}
+
+footer a {
+	color: #eee;
+}
+
+	footer a:hover {
+		color: #62acff;
+	}
+
+footer p {
+	margin-bottom: 30px;
+}
+
+	#copyright {
+		display: inline;
+		float: left;
+		padding-left: 50px;
+		padding-right: 0px;
+	}
+
+	#contact {
+		display: inline;
+		float: right;
+		padding-left: 0px;
+		padding-right: 50px;
+	}
