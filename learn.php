@@ -6,6 +6,8 @@
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
 		<link href="styles/learn.css" rel="stylesheet" type="text/css" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
+		<script src="scripts/jquery-1.11.3.js"></script>
+		<script src="scripts/logoselector.js"></script>
 	</head>
 	<body>
 	<header>
@@ -26,24 +28,24 @@
 		<h1>Одберете јазик:</h1>
 			<div id="links">
 				<a href="#">
-					<div class="pic" id="c++">
-						<img src="images/cpp-logo-200px.png" />
+					<div class="pic" id="cpp">
+						<img src="images/cpp-logo-200px.png" id="cppimg" />
 					</div>
 				</a>
 				<a href="#">
 					<div id="java" class="pic">
-						<img src="images/java-logo-200px.png" />
+						<img src="images/java-logo-200px.png" id="javaimg" />
 					</div>
 				</a>
 				<br />
 				<a href="#">
 					<div id="HTML" class="pic">
-						<img src="images/html5-logo-200px.png" />
+						<img src="images/html5-logo-200px.png" id="htmlimg" />
 					</div>
 				</a>
 				<a href="#">
 					<div id="JavaScript" class="pic">
-						<img src="images/javascript-logo-200px.png" />
+						<img src="images/javascript-logo-200px.png" id="jsimg" />
 					</div>
 				</a>
 			</div>	
