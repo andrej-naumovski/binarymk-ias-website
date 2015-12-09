@@ -1,0 +1,53 @@
+#main th, h1, h2 {
+	text-shadow: 1px 1px 0px #000;
+}
+
+#main #blog {
+	float: left;
+	display: inline;
+	margin-bottom: 10px;
+	margin-left: 30px;
+	margin-top: 20px;
+	text-align: left;
+	width: 70%;
+}
+
+	#main #blog img {
+		width: 275px;
+	}
+
+	#main #blog h1 {
+		font-size: 48px;
+	}
+
+	#main #blog h2 {
+		font-size: 36px;
+		margin-bottom: 10px;
+	}
+
+	#main #blog .blogElement {
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+.image {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+
+#mostRecent {
+	display:inline-block;
+	padding-top:90px;
+	text-align: left;
+}
+
+	#mostRecent th {
+		font-size: 24px;
+	}
+
+	#mostRecent ul {
+		padding-bottom: 15px;
+		padding-left: 10px;
+		padding-top: 10px;
+	}
