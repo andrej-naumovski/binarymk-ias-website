@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Home</title>
+		<title>PracticeAndExercise</title>
 		<meta charset="utf-8" />
 		<link href="styles/clear.css" rel="stylesheet" type="text/css" />
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
@@ -63,7 +63,7 @@
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />
 		<footer>
 			<p id="copyright">COPYRIGHT &copy; BINARY.MK, 2015. РАЗВИЕНО ОД АНДРЕЈ НАУМОВСКИ И ЃОРЃИ МАРКОВ. СИТЕ ПРАВА СЕ ЗАДРЖАНИ</p>
-			<p id="contact"><a href="#">КОНТАКТ</a></p>
+			<p id="contact"><a href="contact.php">КОНТАКТ</a></p>
 			<img src="images/register-undershade.png" />
 		</footer>
 	</body>
