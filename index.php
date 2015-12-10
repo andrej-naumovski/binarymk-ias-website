@@ -17,6 +17,11 @@
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
 		<script src="/scripts/jquery-1.11.3.js"></script>
 		<script src="/scripts/menubuttons.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#blog, #mostRecent').hide().fadeIn(600);
+			});
+		</script>
 	</head>
 	<body>
 		<header>
