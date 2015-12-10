@@ -19,6 +19,8 @@
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
 		<link href="styles/home.css" rel="stylesheet" type="text/css" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
+		<script src="/scripts/jquery-1.11.3.js"></script>
+		<script src="/scripts/menubuttons.js"></script>
 	</head>
 	<body>
 		<header>
@@ -29,10 +31,10 @@
 			<br style="clear:both;"/>
 			<img src="images/title_logo.png" />
 			<nav>
-				<a href="index.php" id="home">ДОМА</a>
-				<a href="learn.php" id="tuts">НАУЧИ ДА КОДИРАШ</a>
-				<a href="practice.php" id="practice">ВЕЖБИ И ЗАДАЧИ</a>
-				<a href="questions.php" id="questions">ИМАШ ПРАШАЊЕ?</a>
+				<a href="index.php" id="home" class="navButton">ДОМА</a>
+				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>
+				<a href="practice.php" id="practice" class="navButton">ВЕЖБИ И ЗАДАЧИ</a>
+				<a href="questions.php" id="questions" class="navButton">ИМАШ ПРАШАЊЕ?</a>
 			</nav>
 		</header>
 		<div id="main">
