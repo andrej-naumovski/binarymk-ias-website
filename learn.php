@@ -7,7 +7,7 @@
 		<link href="styles/learn.css" rel="stylesheet" type="text/css" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
 		<script src="scripts/jquery-1.11.3.js"></script>
-		<script src="scripts/logoselector.js"></script>
+		<!--<script src="scripts/logoselector.js"></script>-->
 		<script src="/scripts/menubuttons.js"></script>
 	</head>
 	<body>
