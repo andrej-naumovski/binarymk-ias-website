@@ -25,42 +25,30 @@
 			</nav>
 		</header>
 		<div id="main">
-		<h2>C++/Java задачи:</h2>
-			<div id="zadacha1" class="zadacha">
-				<div id="topdiv">
-				<h1>Топчиња:</h1>
-				</div>
-				<div id="botdiv">
-				<p>асдкајдлксндлкасднкандскјасднлансдклајсндкјансдкј</p>
-				</div>
+			<div class="contentBtn" id="easy">
+			<h3>Лесно ниво:</h3>
 			</div>
-			<div  id="zadacha2" class="zadacha">
-				<div id="topdiv">
-				<h1>Топчиња:</h1>
-				</div>
-				<div id="botdiv">
-				<p>асдкајдлксндлкасднкандскјасднлансдклајсндкјансдкј</p>
-				</div>
+			<div class="content" id="easyContent">
+			<p>асдадсасдасдасдасдасдас</p>
+			<hr />
+			<p>асдадсасдасдасдасдасдас</p>
 			</div>
-			<br />
-			<h2>HTML/JavaScript задачи:</h2>
-			<div id="zadacha1" class="zadacha">
-				<div id="topdiv">
-				<h1>Топчиња:</h1>
-				</div>
-				<div id="botdiv">
-				<p>асдкајдлксндлкасднкандскјасднлансдклајсндкјансдкј</p>
-				</div>
+			<div class="contentBtn" id="medium">
+			<h3>Средно ниво:</h3>
 			</div>
-			<div  id="zadacha2" class="zadacha">
-				<div id="topdiv">
-				<h1>Топчиња:</h1>
-				</div>
-				<div id="botdiv">
-				<p>асдкајдлксндлкасднкандскјасднлансдклајсндкјансдкј</p>
-				</div>
+			<div class="content" id="mediumContent">
+			<p>асдадсасдасдасдасдасдас</p>
+			<hr />
+			<p>асдадсасдасдасдасдасдас</p>
 			</div>
-			<br />
+			<div class="contentBtn" id="hard">
+			<h3>Тешко ниво:</h3>
+			</div>
+			<div class="content" id="hardContent">
+			<p>асдадсасдасдасдасдасдас</p>
+			<hr />
+			<p>асдадсасдасдасдасдасдас</p>
+			</div>
 		</div>
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />
 		<footer>
