@@ -17,8 +17,28 @@
 
 #main img {
 	display:inline-block;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
 	opacity: 0.4;
+	transition: all 0.25s ease-in;
+	-webkit-transition: all 0.25s ease-in;
+	-o-transition: all 0.25s ease-in;
+	-ms-transition: all 0.25s ease-in;
+	-moz-transition: all 0.25s ease-in;
 }
+
+#main img:hover {
+	opacity: 0.8;
+	filter: grayscale(0);
+	-webkit-filter: grayscale(0);
+	-o-filter: grayscale(0);
+	-ms-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+}
+
 #links {
 	margin-top: 10px;
 	margin-bottom: 20px;
