@@ -1,9 +1,8 @@
-
-
 .contentBtn {
-	backround color: #fff;
+	background: #fff;
 	border-radius: 10px;
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+	color: #222;
 	display:inline-block;
 	width: 700px;
 	height: 30px;
@@ -11,7 +10,18 @@
 	padding-bottom: 1px;
 	margin-top: 10px;
 	margin-bottom: 5px;
+	transition: all 0.25s linear;
+	-moz-transition: all 0.25s linear;
+	-ms-transition: all 0.25s linear;
+	-o-transition: all 0.25s linear;
+	-webkit-transition: all 0.25s linear;
 }
+
+	.contentBtn:hover {
+		background: #929292;
+		color: #eee;
+	}
+
 h3 {
 	font-size: 25px;
 }
@@ -22,3 +32,8 @@ p {
 hr {
 	width: 650px;
 }
+
+#main a {
+	opacity: 0.4;
+}
+

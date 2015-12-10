@@ -2,14 +2,10 @@
 
 <?php require 'scripts/connections.php'; ?>
 
-<!--<?php
+<?php 
+	define("USERNAME_INDEX", 4);
 	session_start();
-	if(!isset($_SESSION['UserID'])) {
-		header('Location: login.php');
-	} else {
-		echo 'Hello!';
-	}
-?> -->
+?>
 
 <html>
 	<head>
@@ -25,8 +21,20 @@
 	<body>
 		<header>
 			<div id="userbar">
-				<h6 id="welcome">Добредојдовте, <a href="#">username.</a></h6>
-				<h6 id="logout"><a href="#">Одјави се</a></h6>
+				<?php
+					if(isset($_SESSION['UserID'])) {
+						$userid = $_SESSION['UserID'];
+						$sql = "select * from users where UserID='$userid'";
+						$result = $mysqli->query($sql);
+						$row = $result->fetch_row();
+						$username = $row[USERNAME_INDEX];
+						printf('<h6 id="welcome">Добредојдовте, <a href="#">' . $username. '</a></h6>
+								<form method="post" action="scripts/logout.php"><input id="logout" type="submit" name="logout" value="Одјави се" /></form>');
+					} else {
+						printf('<h6 id="welcome">Не сте најавени</a></h6>
+								<h6 id="login"><a href="login.php">Најави се</a></h6>');
+					}
+				?>
 			</div>
 			<br style="clear:both;"/>
 			<img src="images/title_logo.png" />

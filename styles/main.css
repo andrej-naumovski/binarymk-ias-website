@@ -20,12 +20,28 @@ header {
 	#welcome {
 		display: inline;
 		float: left;
+		margin-top: 3px;
 	}
 
 	#logout {
+		background: none;
+		border: none;
+		color: #fff;
 		display: inline;
 		float: right;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 16px;
+		margin-top: 0px;
+		padding-right: 0px;
+		padding-top: 0px;
 	}
+
+	#login {
+		display: inline;
+		float: right;
+		margin-top: 3px;
+	}
+
 
 header img {
 	margin: auto;
