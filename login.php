@@ -67,7 +67,7 @@
             				if(check_password($password, $hashed_password)) {
             					session_start();
             					$_SESSION['UserID'] = $row[USERID_INDEX];
-            					header('Location: index.php');
+            					header("Location: index.php");
             				} else {
             					echo "<p style=\"color:red\">Invalid login</p>";
             				}

@@ -1,8 +1,8 @@
 function onHover(element, image) {
 	$(element).hover(function() {
-		$(image).animate({opacity: "0.8"}, 400);
+		$(image).animate({opacity: "0.8"; filter: "grayscale(0%)"}, 400);
 	}, function() {
-		$(image).animate({opacity: "0.4"}, 400);
+		$(image).animate({opacity: "0.4"; filter: "grayscale(100%)"}, 400);
 	});
 };
 
