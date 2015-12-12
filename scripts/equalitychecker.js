@@ -1,5 +1,5 @@
 function isEmail(email) {
-	var regex = /^[^\W]*[@][^\W]*\.[a-z\.]*$/;
+	var regex = /^[a-zA-Z0-9\.\-\_]*[@][a-zA-Z0-9\-]*\.[a-z\.]*$/;
 	return regex.test(email);
 };
 
