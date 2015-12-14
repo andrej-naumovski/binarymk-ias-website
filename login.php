@@ -14,10 +14,11 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title><?php echo $site_title . " - "; ?>Најави се</title>
 	<meta charset="utf-8" />
     <link href="styles/clear.css" rel="stylesheet" type="text/css" />
     <link href="styles/login.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico?<?php echo time() ?>" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="/scripts/jquery-1.11.3.js"></script>
     <!--resetting CSS used in transitions because of stupid Chrome-->
@@ -49,9 +50,10 @@
                 <?php
                 	define("PASSWORD_INDEX", 5);
                 	define("USERID_INDEX", 0);
+                	define("USERNAME_INDEX", 4);
 
             		if(isset($_POST['submit'])) {
-            			$username=$_POST['username'];
+            			$username=$mysqli->real_escape_string($_POST['username']);
             			$password=$_POST['password'];
             			if(filter_var($username, FILTER_VALIDATE_EMAIL)) {
             				$sql = "select * from users where Email='$username'";
@@ -65,6 +67,11 @@
             				$row = $result->fetch_row();
             				$hashed_password = $row[PASSWORD_INDEX];
             				if(check_password($password, $hashed_password)) {
+            					$user = $mysqli->real_escape_string($row[USERNAME_INDEX]);
+            					$userid = $row[USERID_INDEX];
+            					$insert = "insert into loggedin (UserID, Username)
+            					Values('$userid','$user')";
+            					$mysqli->query($insert);
             					session_start();
             					$_SESSION['UserID'] = $row[USERID_INDEX];
             					header("Location: index.php");

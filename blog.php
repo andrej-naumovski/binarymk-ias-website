@@ -2,34 +2,32 @@
 
 <?php require 'scripts/connections.php'; ?>
 
-<?php
+<?php 
 	define("USERNAME_INDEX", 4);
+	define("FIRSTNAME_INDEX", 1);
+	define("LASTNAME_INDEX", 2);
 	session_start();
-	if(!isset($_SESSION['UserID'])) {
-		header('Location: login.php');
-	}
 ?>
 
 <html>
 	<head>
-		<title><?php echo $site_title . " - "; ?>Научи да кодираш</title>
+		<title><?php echo $site_title . " - "; ?>Блог</title>
 		<meta charset="utf-8" />
 		<link href="styles/clear.css" rel="stylesheet" type="text/css" />
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
-		<link href="styles/learn.css" rel="stylesheet" type="text/css" />
+		<link href="styles/blog.css" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="favicon.ico?<?php echo time() ?>" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
-		<script src="scripts/jquery-1.11.3.js"></script>
-		<!--<script src="scripts/logoselector.js"></script>-->
+		<script src="/scripts/jquery-1.11.3.js"></script>
 		<script src="/scripts/menubuttons.js"></script>
 		<script>
 			$(document).ready(function() {
-				$('#links, #title').hide().fadeIn(600);
+				$('#blogPost').hide().fadeIn(600);
 			});
 		</script>
 	</head>
 	<body>
-	<header>
+		<header>
 			<div id="userbar">
 				<?php
 					if(isset($_SESSION['UserID'])) {
@@ -38,7 +36,7 @@
 						$result = $mysqli->query($sql);
 						$row = $result->fetch_row();
 						$username = $row[USERNAME_INDEX];
-						printf('<h6 id="welcome">Добредојдовте, <a href="#">' . $username. '</a></h6>
+						printf('<h6 id="welcome">Добредојдовте, <a href="#">' . $username . '</a></h6>
 								<form method="post" action="scripts/logout.php"><input id="logout" type="submit" name="logout" value="Одјави се" /></form>');
 					} else {
 						printf('<h6 id="welcome">Не сте најавени</a></h6>
@@ -56,30 +54,28 @@
 			</nav>
 		</header>
 		<div id="main">
-		<h1 id="title">Одберете јазик:</h1>
-			<div id="links">
-				<a href="#">
-					<div class="pic" id="cpp">
-						<img src="images/cpp-logo-200px.png" id="cppimg" />
-					</div>
-				</a>
-				<a href="#">
-					<div id="java" class="pic">
-						<img src="images/java-logo-200px.png" id="javaimg" />
-					</div>
-				</a>
-				<br />
-				<a href="#">
-					<div id="HTML" class="pic">
-						<img src="images/html5-logo-200px.png" id="htmlimg" />
-					</div>
-				</a>
-				<a href="#">
-					<div id="JavaScript" class="pic">
-						<img src="images/javascript-logo-200px.png" id="jsimg" />
-					</div>
-				</a>
-			</div>	
+			<div id="blogPost">
+				<?php
+					if(isset($_GET['title'])) {
+						$post_title = $_GET['title'];
+						$recover = "select * from blogposts where PostTitle='$post_title'";
+						$result = $mysqli->query($recover);
+						$row = $result->fetch_row();
+						$post_content = wordwrap("" . $row[2], 100, "<br />\n", true);
+						$userid = $row[4];
+						$recover = "select * from users where UserID='$userid'";
+						$user_result = $mysqli->query($recover);
+						$user_row = $user_result->fetch_row();
+						$first_name = $user_row[FIRSTNAME_INDEX];
+						$last_name = $user_row[LASTNAME_INDEX];
+						printf("<h1 id=\"blogPostTitle\">" . $post_title . "</h1>");
+						printf('<br style="clear: both" />');
+						printf('<h5 style="padding-left: 15px">Објавено од: ' . $first_name . ' ' . $last_name . '</h5>');
+						printf('<hr>');
+						printf("<p id=\"blogPostContent\">" . $post_content . "</p>");
+					}
+				?>
+			</div>
 		</div>
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />
 		<footer>
@@ -88,5 +84,4 @@
 			<img src="images/register-undershade.png" />
 		</footer>
 	</body>
-
 </html>

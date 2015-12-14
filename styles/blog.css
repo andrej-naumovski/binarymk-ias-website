@@ -1,0 +1,20 @@
+#blogPost {
+	text-align: left;
+	margin-left: 5px;	
+	padding-left: 20px;
+	padding-top: 20px;
+	width: 860px;
+}
+
+	#blogPostTitle {
+		float: left;
+		font-size: 48px;
+		text-shadow: 1px 1px 0px #000;
+	}
+
+	#blogPostContent {
+		font-size: 18px;
+		line-height: 150%;
+		text-align: justify;
+		padding-left: 10px;
+	}

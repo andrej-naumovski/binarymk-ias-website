@@ -1,0 +1,72 @@
+#makePost {
+	margin-bottom: 100px;
+	margin-top: 0px;
+}
+
+.input {
+		background-color: #1a1a1a;
+		border: none;
+		box-shadow: inset 2px 2px 4px #000;
+		-moz-box-shadow: inset 2px 2px 4px #000;
+		-webkit-box-shadow: inset 2px 2px 4px #000;
+		color: #eee;
+		display: block;
+		margin-bottom: 15px;
+		margin-left: 10px;
+		margin-top: 15px;
+		padding-left: 5px;
+		
+	}
+
+		::-webkit-input-placeholder {
+		    font-size: 15px;
+		    color: #929292;
+		    font-style:italic;
+		} 
+		:-moz-placeholder { /* older Firefox */
+		    font-size: 15px;
+		    color: #929292;
+		    font-style:italic;
+		}
+		::-moz-placeholder { /* Firefox 19+ */
+		    font-size: 15px;
+		    color: #929292;
+		    font-style:italic; 
+		}
+		:-ms-input-placeholder { 
+		    font-size: 23px;
+		    color: #929292;
+		    font-style:italic;
+		} 
+
+		-input-placeholder {
+		    font-size: 23px;
+		    color: #929292;
+		    font-style:italic;
+		}
+
+		#title {
+			height: 25px;
+			width: 350px;
+		}
+
+#submitQuestion {
+	background: none;
+	border: none;
+	color: #222;
+	float: right;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	margin-right: 70px;
+	transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-webkit-transition: all 0.25s ease-out;
+}
+
+	#submitQuestion:hover {
+		background: #222;
+		color: #eee;
+	}

@@ -30,6 +30,39 @@
 		margin-top: 20px;
 	}
 
+	#main #blog #newPost {
+		color: #eee;
+		float: right;
+		text-shadow: 1px 1px 2px #000;
+	}
+
+	#main #blog #title {
+		background: none;
+		border: none;
+		color: #929292;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 36px;
+		padding: 0px;
+		text-shadow: 1px 1px 0px #000;
+	}
+
+.blogElement img {
+	transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-webkit-transition: all 0.25s ease-out;
+}
+
+.blogElement:hover, .blogElement:hover #title {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.blogElement:hover img {
+	opacity: 0.4;
+}
+
 .image {
 	display: inline-block;
 	float: left;
@@ -50,4 +83,20 @@
 		padding-bottom: 15px;
 		padding-left: 10px;
 		padding-top: 10px;
+	}
+
+	#mostRecent button {
+		background: none;
+		border: none;
+		font-family: 'Open Sans Condensed', sans-serif;
+	}
+
+	#mostRecent button:hover {
+		cursor: pointer;
+		cursor: hand;
+	}
+
+	#mostRecent h1 {
+		font-size: 16px;
+		text-shadow: none;
 	}

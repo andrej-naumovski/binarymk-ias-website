@@ -2,8 +2,10 @@
 
 <?php require 'scripts/connections.php'; ?>
 
-<?php
+<?php 
 	define("USERNAME_INDEX", 4);
+	define("QUESTIONTITLE_INDEX", 1);
+	define("QUESTIONS_USERID_INDEX", 3);
 	session_start();
 	if(!isset($_SESSION['UserID'])) {
 		header('Location: login.php');
@@ -12,24 +14,23 @@
 
 <html>
 	<head>
-		<title><?php echo $site_title . " - "; ?>Научи да кодираш</title>
+		<title><?php echo $site_title . " - "; ?>Прашања</title>
 		<meta charset="utf-8" />
 		<link href="styles/clear.css" rel="stylesheet" type="text/css" />
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
-		<link href="styles/learn.css" rel="stylesheet" type="text/css" />
+		<link href="styles/questions.css" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="favicon.ico?<?php echo time() ?>" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
-		<script src="scripts/jquery-1.11.3.js"></script>
-		<!--<script src="scripts/logoselector.js"></script>-->
+		<script src="/scripts/jquery-1.11.3.js"></script>
 		<script src="/scripts/menubuttons.js"></script>
 		<script>
 			$(document).ready(function() {
-				$('#links, #title').hide().fadeIn(600);
+				$('#hide').hide().fadeIn(600);
 			});
 		</script>
 	</head>
 	<body>
-	<header>
+		<header>
 			<div id="userbar">
 				<?php
 					if(isset($_SESSION['UserID'])) {
@@ -38,7 +39,7 @@
 						$result = $mysqli->query($sql);
 						$row = $result->fetch_row();
 						$username = $row[USERNAME_INDEX];
-						printf('<h6 id="welcome">Добредојдовте, <a href="#">' . $username. '</a></h6>
+						printf('<h6 id="welcome">Добредојдовте, <a href="#">' . $username . '</a></h6>
 								<form method="post" action="scripts/logout.php"><input id="logout" type="submit" name="logout" value="Одјави се" /></form>');
 					} else {
 						printf('<h6 id="welcome">Не сте најавени</a></h6>
@@ -56,30 +57,34 @@
 			</nav>
 		</header>
 		<div id="main">
-		<h1 id="title">Одберете јазик:</h1>
-			<div id="links">
-				<a href="#">
-					<div class="pic" id="cpp">
-						<img src="images/cpp-logo-200px.png" id="cppimg" />
-					</div>
-				</a>
-				<a href="#">
-					<div id="java" class="pic">
-						<img src="images/java-logo-200px.png" id="javaimg" />
-					</div>
-				</a>
-				<br />
-				<a href="#">
-					<div id="HTML" class="pic">
-						<img src="images/html5-logo-200px.png" id="htmlimg" />
-					</div>
-				</a>
-				<a href="#">
-					<div id="JavaScript" class="pic">
-						<img src="images/javascript-logo-200px.png" id="jsimg" />
-					</div>
-				</a>
-			</div>	
+			<div id="hide">
+				<div id="top">
+					<h3 id="ask"><a href="askquestion.php">ПОСТАВИ ПРАШАЊЕ</a></h3>
+					<br style="clear: both;"/>
+					<br style="clear: both;"/>
+					<h1 id="title">НАЈНОВИ ПРАШАЊА</h1>
+					<br style="clear: both;"/>
+				</div>
+				<?php
+					$get_questions = "select * from questions order by id desc";
+					$result = $mysqli->query($get_questions);
+					while($row = $result->fetch_row()) {
+						$title = $row[QUESTIONTITLE_INDEX];
+						$userid = $row[QUESTIONS_USERID_INDEX];
+						$questionid = $row[0];
+						$get_username = "select * from users where UserID='$userid'";
+						$user = $mysqli->query($get_username);
+						$user_row = $user->fetch_row();
+						$username = $user_row[USERNAME_INDEX];
+						printf('<div id="question">');
+						printf('<form class="question" method="get" action="question.php"><button type="submit" id="questionTitle" name="id" value="' . $questionid . '"><h1>' . strtoupper($title) . '</h1></button></form>');
+						printf('<br style="clear: both;"');
+						printf('<h4>&nbsp; &nbsp; &nbsp; &nbsp;Поставено од: ' . $username);
+						printf('</div>');
+						printf('<br style="clear: both" />');
+					}
+				?>
+			</div>
 		</div>
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />
 		<footer>
@@ -88,5 +93,4 @@
 			<img src="images/register-undershade.png" />
 		</footer>
 	</body>
-
 </html>
