@@ -1,7 +1,11 @@
 .pic {
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+	-ms-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 	display: inline-block;
 	height: 200px;
 	margin: 8px;

@@ -9,11 +9,12 @@
 
 <html>
 	<head>
-		<title>Home</title>
+		<title><?php echo $site_title . " - "; ?>Постави прашање</title>
 		<meta charset="utf-8" />
 		<link href="styles/clear.css" rel="stylesheet" type="text/css" />
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
 		<link href="styles/askquestion.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico?<?php echo time() ?>" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
 		<script src="/scripts/jquery-1.11.3.js"></script>
 		<script src="/scripts/menubuttons.js"></script>

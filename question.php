@@ -9,13 +9,19 @@
 	session_start();
 ?>
 
+<?php
+	if(!isset($_SESSION['UserID'])) {
+		header('Location: login.php');
+	}
+?>
+
 <html>
 	<head>
-		<title><?php echo $site_title . " - "; ?>Блог</title>
+		<title><?php echo $site_title . " - "; ?>Прашање</title>
 		<meta charset="utf-8" />
 		<link href="styles/clear.css" rel="stylesheet" type="text/css" />
 		<link href="styles/main.css" rel="stylesheet" type="text/css" />
-		<link href="styles/blog.css" rel="stylesheet" type="text/css" />
+		<link href="styles/question.css" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="favicon.ico?<?php echo time() ?>" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
 		<script src="/scripts/jquery-1.11.3.js"></script>
@@ -54,27 +60,67 @@
 			</nav>
 		</header>
 		<div id="main">
-			<div id="blogPost">
+			<div id="questionPost">
 				<?php
-					if(isset($_GET['title'])) {
-						$post_title = $_GET['title'];
-						$recover = "select * from blogposts where PostTitle='$post_title'";
-						$result = $mysqli->query($recover);
+					if(isset($_GET['id'])) {
+						$question_id = $_GET['id'];
+						$recover_question = "select * from questions where id='$question_id'";
+						$result = $mysqli->query($recover_question);
 						$row = $result->fetch_row();
-						$post_content = wordwrap("" . $row[2], 100, "<br />\n", true);
-						$userid = $row[4];
-						$recover = "select * from users where UserID='$userid'";
-						$user_result = $mysqli->query($recover);
-						$user_row = $user_result->fetch_row();
-						$first_name = $user_row[FIRSTNAME_INDEX];
-						$last_name = $user_row[LASTNAME_INDEX];
-						printf("<h1 id=\"blogPostTitle\">" . $post_title . "</h1>");
+						$question_title = $row[1];
+						$question_content = wordwrap($row[2], 100, "<br />\n", true);
+						$userid = $row[3];
+						$get_user = "select * from users where UserID='$userid'";
+						$result = $mysqli->query($get_user);
+						$user = $result->fetch_row();
+						$first_name = $user[1];
+						$last_name = $user[2];
+						printf("<h1 id=\"questionPostTitle\">" . $question_title . "</h1>");
+						printf('<br style="clear: both" />');
 						printf('<br style="clear: both" />');
 						printf('<h5 style="padding-left: 15px">Објавено од: ' . $first_name . ' ' . $last_name . '</h5>');
 						printf('<hr>');
-						printf("<p id=\"blogPostContent\">" . $post_content . "</p>");
+						printf("<p id=\"questionContent\">" . $question_content . "</p>");
+						printf('<hr>');
 					}
 				?>
+			</div>
+			<div id="answers">
+				<h2>ОДГОВОРИ:</h2>
+				<?php
+					$question_id = $_GET['id'];
+					$fetch_results = "select * from answers where QuestionID='$question_id'";
+					$result = $mysqli->query($fetch_results);
+					while($row = $result->fetch_row()) {
+						$post_answerer = $row[3];
+						$get_user_answer = "select * from users where UserID='$post_answerer'";
+						$res = $mysqli->query($get_user_answer);
+						$answerer = $res->fetch_row();
+						$ans_first_name = $answerer[1];
+						$ans_last_name = $answerer[2];
+						$answer = wordwrap($row[1], 100, "<br />\n", true);
+						printf('<h3 style="padding-left: 15px">' . $ans_first_name . ' ' . $ans_last_name . '</h3>');
+						printf("<p id=\"answerContent\">" . $answer . "</p>");
+						printf('<hr>');
+					}
+				?>
+			</div>
+			<div id="postAnswer">
+				<form method="post" id="newAnswer" action="">
+					<textarea name="answer" id="answer" rows="15" cols="100" placeholder="Вашиот одговор овде" required></textarea>
+					<br style="clear: both" />
+					<button type="submit" name="submit">ОДГОВОРИ</button>
+					<?php
+						if(isset($_POST['submit'])) {
+							$answererid = $_SESSION['UserID'];
+							$answer_content = $_POST['answer'];
+							$question_id = $_GET['id'];
+							$add_answer = "insert into answers (Content,QuestionID,UserID)Values('$answer_content','$question_id','$answererid')";
+							$mysqli->query($add_answer);
+							header('Refresh: 0');
+						}
+					?>
+				</form>
 			</div>
 		</div>
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />

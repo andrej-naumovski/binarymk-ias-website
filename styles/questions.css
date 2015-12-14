@@ -28,11 +28,11 @@
 #question {
 	background: #fff;
 	border-radius: 10px;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-	-o-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-	-ms-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-ms-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 	font-family: 'Open Sans Condensed', sans-serif;
 	margin-left: 10px;
 	margin-right: 10px;

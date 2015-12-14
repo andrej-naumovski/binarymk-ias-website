@@ -133,3 +133,8 @@ footer p {
 		padding-left: 0px;
 		padding-right: 50px;
 	}
+
+button:hover {
+	cursor:pointer;
+	cursor:hand;
+}
