@@ -51,7 +51,7 @@
 				?>
 			</div>
 			<br style="clear:both;"/>
-			<img src="images/title_logo.png" />
+			<a href="index.php"><img src="images/title_logo.png" /></a>
 			<nav>
 				<a href="index.php" id="home" class="navButton">ДОМА</a>
 				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>
@@ -68,7 +68,7 @@
 						$result = $mysqli->query($recover_question);
 						$row = $result->fetch_row();
 						$question_title = $row[1];
-						$question_content = wordwrap($row[2], 100, "<br />\n", true);
+						$question_content = $row[2];
 						$userid = $row[3];
 						$get_user = "select * from users where UserID='$userid'";
 						$result = $mysqli->query($get_user);

@@ -48,7 +48,7 @@
 				?>
 			</div>
 			<br style="clear:both;"/>
-			<img src="images/title_logo.png" />
+			<a href="index.php"><img src="images/title_logo.png" /></a>
 			<nav>
 				<a href="index.php" id="home" class="navButton">ДОМА</a>
 				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>
@@ -69,7 +69,7 @@
 					$get_questions = "select * from questions order by id desc";
 					$result = $mysqli->query($get_questions);
 					while($row = $result->fetch_row()) {
-						$title = $row[QUESTIONTITLE_INDEX];
+						$title = $row[1];
 						$userid = $row[QUESTIONS_USERID_INDEX];
 						$questionid = $row[0];
 						$get_username = "select * from users where UserID='$userid'";
@@ -77,7 +77,7 @@
 						$user_row = $user->fetch_row();
 						$username = $user_row[USERNAME_INDEX];
 						printf('<div id="question">');
-						printf('<form class="question" method="get" action="question.php"><button type="submit" id="questionTitle" name="id" value="' . $questionid . '"><h1>' . strtoupper($title) . '</h1></button></form>');
+						printf('<form class="question" method="get" action="question.php"><button type="submit" id="questionTitle" name="id" value="' . $questionid . '"><h1>' . $title . '</h1></button></form>');
 						printf('<br style="clear: both;"');
 						printf('<h4>&nbsp; &nbsp; &nbsp; &nbsp;Поставено од: ' . $username);
 						printf('</div>');

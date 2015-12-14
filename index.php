@@ -43,7 +43,7 @@
 				?>
 			</div>
 			<br style="clear:both;"/>
-			<img src="images/title_logo.png" />
+			<a href="index.php"><img src="images/title_logo.png" /></a>
 			<nav>
 				<a href="index.php" id="home" class="navButton">ДОМА</a>
 				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>
@@ -55,10 +55,15 @@
 			<div id="blog">
 				<h1>БЛОГ ОБЈАВИ</h1>
 				<?php
-					define("LEVEL_ADMIN", 9);
+					define("LEVEL_ADMIN", 2);
 
 					if(isset($_SESSION['UserID'])) {
-						if($_SESSION['UserID'] == LEVEL_ADMIN) {
+						$_userid = $_SESSION['UserID'];
+						$sql = "select * from users where UserID='$_userid'";
+						$result = $mysqli->query($sql);
+						$row = $result->fetch_row();
+						$userlevel = $row[7];
+						if($userlevel == LEVEL_ADMIN) {
 							printf('<h5 id="newPost"><a href="newpost.php">Нова објава</a></h5>');
 						}
 					}
@@ -67,8 +72,9 @@
 					$recover_posts = "select * from blogposts order by PostID desc limit 5";
 					$result = $mysqli->query($recover_posts);
 					for($i=0; $i < 5 && $row = $result->fetch_row(); $i++) {
-						$title = $row[1];
-						$content = wordwrap($row[2], 60, "<br />\n", true);
+						$title = wordwrap($row[1], 30, "\n", true);
+						$content = wordwrap($row[2], 60, "\n", true);
+						$postid = wordwrap($row[0], 50, "\n", true);;
 						if(strlen($content) > 300) {
 							$short_content = substr($content, 0, 300) . "...";
 						} else {
@@ -77,7 +83,7 @@
 						printf('<div class="blogElement">');
 						printf('<div class="image"><img src="images/test_main.png" /></div>');
 						printf('<div class="text">');
-						printf('<form class="blogpost" method="get" action="blog.php"><input type="submit" name="title" id="title" value="' . $title . '" /></form>');
+						printf('<form class="blogpost" method="get" action="blog.php"><button type="submit" name="id" id="title" value="' . $postid . '">' . $title . '</button></form>');
 						printf('<p>' . $short_content . '</p>');
 						printf('</div>');
 						printf("</div>");
