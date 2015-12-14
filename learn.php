@@ -22,6 +22,7 @@
 		<script src="scripts/jquery-1.11.3.js"></script>
 		<!--<script src="scripts/logoselector.js"></script>-->
 		<script src="/scripts/menubuttons.js"></script>
+		<script src="scripts/tutorials.js"></script>
 		<script>
 			$(document).ready(function() {
 				$('#links, #title').hide().fadeIn(600);
@@ -101,7 +102,7 @@
 						<li><a href="https://www.youtube.com/watch?v=5DdacOkrTgo&index=6&list=PLFE2CE09D83EE3E28" target="_blank">Работа со влезни податоци</a></li>
 						<li><a href="https://www.youtube.com/watch?v=iMeaovDbgkQ&list=PLFE2CE09D83EE3E28&index=10" target="_blank">IF-statement</a></li>
 					</ul>
-					<ul id="csslinks">
+					<ul id="jslinks">
 						<li><a href="https://www.youtube.com/watch?v=Wz2klMXDqF4" target="_blank">Додавање на стилови преку CSS</a></li>
 						<li><a href="https://www.youtube.com/watch?v=6rKan6loNTw" target="_blank">Селектори</a></li>
 						<li><a href="https://www.youtube.com/watch?v=NR4arpSA2jI" target="_blank">Модел на кутија</a></li>
