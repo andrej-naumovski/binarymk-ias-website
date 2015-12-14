@@ -103,10 +103,10 @@
 						<li><a href="https://www.youtube.com/watch?v=iMeaovDbgkQ&list=PLFE2CE09D83EE3E28&index=10" target="_blank">IF-statement</a></li>
 					</ul>
 					<ul id="jslinks">
-						<li><a href="https://www.youtube.com/watch?v=Wz2klMXDqF4" target="_blank">Додавање на стилови преку CSS</a></li>
-						<li><a href="https://www.youtube.com/watch?v=6rKan6loNTw" target="_blank">Селектори</a></li>
-						<li><a href="https://www.youtube.com/watch?v=NR4arpSA2jI" target="_blank">Модел на кутија</a></li>
-						<li><a href="https://www.youtube.com/watch?v=W5ycN9jBuBw" target="_blank">Позиционирање</a></li>
+						<li><a href="https://www.youtube.com/watch?v=yQaAGmHNn9s&list=PL46F0A159EC02DF82" target="_blank">Запознавање со JavaScript</a></li>
+						<li><a href="https://www.youtube.com/watch?v=yUyJ1gcaraM" target="_blank">Коментари и изјави</a></li>
+						<li><a href="https://www.youtube.com/watch?v=og4Zku5VVl0" target="_blank">Променливи, декларација и иницијализација</a></li>
+						<li><a href="https://www.youtube.com/watch?v=5nuqALOHN1M" target="_blank">Концепт и работа на функции</a></li>
 					</ul>
 				</div>
 				<br style="clear: both"	/>
