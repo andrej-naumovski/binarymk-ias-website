@@ -10,9 +10,12 @@
 	height: 200px;
 	margin: 8px;
 	width: 200px;
-	
-
 }
+
+#links {
+	float: left;
+}
+
 #main h1 {
 	font-size: 48px;
 	text-align: center;
@@ -46,4 +49,35 @@
 #links {
 	margin-top: 10px;
 	margin-bottom: 20px;
+	float: inline-block;
+}
+
+#left {
+	display: inline-block;
+	float: left;
+	text-align: left;
+}
+#right {
+	display: inline-block;
+	float: right;
+	text-align: right;
+}
+
+
+.tutorials {
+	width: 260px;
+	padding-top: 18px;
+	font-size: 20px;
+}
+
+.tutorials a {
+	color: #929292;
+}
+ul {
+	margin: 10px 0px;
+}
+.tutorials ul li {
+	margin: 3px 20px;
+	border-bottom: 1px dashed #929292;
+	margin-top: 5px;
 }
