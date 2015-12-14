@@ -57,6 +57,20 @@
 		</header>
 		<div id="main">
 		<h1 id="title">Одберете јазик:</h1>
+				<div class="tutorials" id="left">
+					<ul id="cpplinks">
+						<li><a href="https://www.youtube.com/watch?v=SWZfFNyUsxc&index=2&list=PLAE85DE8440AA6B83" target="_blank">Разбирање на едноставна С++ програма</a></li>
+						<li><a href="https://www.youtube.com/watch?v=QwBSv4-_Lmk&index=4&list=PLAE85DE8440AA6B83" target="_blank">Променливи, декларација и иницијализација</a></li>
+						<li><a href="https://www.youtube.com/watch?v=yEY8xlnarNo&list=PLAE85DE8440AA6B83&index=8" target="_blank">IF-statement</a></li>
+						<li><a href="https://www.youtube.com/watch?v=bsWWHo4KDHE&index=9&list=PLAE85DE8440AA6B83" target="_blank">Концепт и работа на функции</a></li>
+					</ul>
+					<ul id="htmllinks">
+						<li><a href="https://www.youtube.com/watch?v=9gTw2EDkaDQ" target="_blank" target="_blank">Запознавање со HTML 5</a></li>
+						<li><a href="https://www.youtube.com/watch?v=YcApt9RgiT0" target="_blank">Вметнување на текст</a></li>
+						<li><a href="https://www.youtube.com/watch?v=CGSdK7FI9MY" target="_blank">Слики и хиперлинкови</a></li>
+						<li><a href="https://www.youtube.com/watch?v=dDn9uw7N9Xg" target="_blank">Нови семантички елементи</a></li>
+					</ul>
+				</div>
 			<div id="links">
 				<a href="#">
 					<div class="pic" id="cpp">
@@ -79,7 +93,22 @@
 						<img src="images/javascript-logo-200px.png" id="jsimg" />
 					</div>
 				</a>
-			</div>	
+			</div>
+				<div class="tutorials" id="right">
+					<ul id="javalinks">
+						<li><a href="https://www.youtube.com/watch?v=5u8rFbpdvds&index=2&list=PLFE2CE09D83EE3E28" target="_blank">Разбирање на едноставна Java програма</a></li>
+						<li><a href="https://www.youtube.com/watch?v=gtQJXzi3Yns&list=PLFE2CE09D83EE3E28&index=5" target="_blank">Променливи, декларација и иницијализација</a></li>
+						<li><a href="https://www.youtube.com/watch?v=5DdacOkrTgo&index=6&list=PLFE2CE09D83EE3E28" target="_blank">Работа со влезни податоци</a></li>
+						<li><a href="https://www.youtube.com/watch?v=iMeaovDbgkQ&list=PLFE2CE09D83EE3E28&index=10" target="_blank">IF-statement</a></li>
+					</ul>
+					<ul id="csslinks">
+						<li><a href="https://www.youtube.com/watch?v=Wz2klMXDqF4" target="_blank">Додавање на стилови преку CSS</a></li>
+						<li><a href="https://www.youtube.com/watch?v=6rKan6loNTw" target="_blank">Селектори</a></li>
+						<li><a href="https://www.youtube.com/watch?v=NR4arpSA2jI" target="_blank">Модел на кутија</a></li>
+						<li><a href="https://www.youtube.com/watch?v=W5ycN9jBuBw" target="_blank">Позиционирање</a></li>
+					</ul>
+				</div>
+				<br style="clear: both"	/>
 		</div>
 		<img src="images/register-undershade.png" style="margin: auto; width: 960px;" />
 		<footer>
