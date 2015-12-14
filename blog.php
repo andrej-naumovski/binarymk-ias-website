@@ -45,7 +45,7 @@
 				?>
 			</div>
 			<br style="clear:both;"/>
-			<img src="images/title_logo.png" />
+			<a href="index.php"><img src="images/title_logo.png" /></a>
 			<nav>
 				<a href="index.php" id="home" class="navButton">ДОМА</a>
 				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>
@@ -56,12 +56,13 @@
 		<div id="main">
 			<div id="blogPost">
 				<?php
-					if(isset($_GET['title'])) {
-						$post_title = $_GET['title'];
-						$recover = "select * from blogposts where PostTitle='$post_title'";
+					if(isset($_GET['id'])) {
+						$post_id = $_GET['id'];
+						$recover = "select * from blogposts where PostID='$post_id'";
 						$result = $mysqli->query($recover);
 						$row = $result->fetch_row();
-						$post_content = wordwrap("" . $row[2], 100, "<br />\n", true);
+						$post_title = $row[1];
+						$post_content = wordwrap($row[2], 250, "\n", true); #wordwrap("" . $row[2], 200, "<br />\n", true);
 						$userid = $row[4];
 						$recover = "select * from users where UserID='$userid'";
 						$user_result = $mysqli->query($recover);
@@ -72,7 +73,7 @@
 						printf('<br style="clear: both" />');
 						printf('<h5 style="padding-left: 15px">Објавено од: ' . $first_name . ' ' . $last_name . '</h5>');
 						printf('<hr>');
-						printf("<p id=\"blogPostContent\">" . $post_content . "</p>");
+						echo '<p id="blogPostContent">' . $post_content . '</p>';
 					}
 				?>
 			</div>

@@ -48,7 +48,7 @@
 				?>
 			</div>
 			<br style="clear:both;"/>
-			<img src="images/title_logo.png" />
+			<a href="index.php"><img src="images/title_logo.png" /></a>
 			<nav>
 				<a href="index.php" id="home" class="navButton">ДОМА</a>
 				<a href="learn.php" id="tuts" class="navButton">НАУЧИ ДА КОДИРАШ</a>

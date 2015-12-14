@@ -15,6 +15,6 @@
 	#blogPostContent {
 		font-size: 18px;
 		line-height: 150%;
-		text-align: justify;
+		/*text-align: justify;*/
 		padding-left: 10px;
 	}
